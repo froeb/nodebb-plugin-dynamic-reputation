@@ -1,0 +1,34 @@
+{
+  "id": "nodebb-plugin-dynamic-reputation",
+  "name": "Dynamic Reputation Plugin",
+  "description": "Event-driven reputation plugin for NodeBB",
+  "url": "https://github.com/froeb/nodebb-plugin-dynamic-reputation",
+  "library": "./library.js",
+  "hooks": [
+    {
+      "hook": "static:app.load",
+      "method": "init"
+    },
+    {
+      "hook": "filter:post.save",
+      "method": "onPostSave"
+    },
+    {
+      "hook": "filter:topic.reply",
+      "method": "onComment"
+    },
+    {
+      "hook": "filter:post.flag",
+      "method": "onFlag"
+    },
+    {
+      "hook": "action:post.downvote",
+      "method": "onDownvote"
+    },
+    {
+      "hook": "action:post.upvote",
+      "method": "onUpvote"
+    }
+    // Add more hooks for "article shared," etc., if needed
+  ]
+}
